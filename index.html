@@ -1,24 +1,24 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reducción de CO2</title>
+    <title>CO2 Reduction</title>
     <style>
         body {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 30px; 
             grid-template-areas:
-                "titulo titulo titulo"
-                "contenido contenido contenido"
-                "formulario formulario formulario"
-                "resultados resultados resultados"
+                "title title title"
+                "content content content"
+                "form form form"
+                "results results results"
                 "chat chat chat";
         }
 
         h1 {
-            grid-area: titulo;
+            grid-area: title;
             text-align: center;
             border: 1px solid #ddd;
             padding: 10px;
@@ -29,14 +29,14 @@
             color: red;
         }
 
-        #contenido {
-            grid-area: contenido;
+        #content {
+            grid-area: content;
             border: 1px solid #ddd;
             padding: 20px;
             background-color: #f2f2f2;
         }
 
-        .seccion {
+        .section {
             border: 1px solid #ddd;
             padding: 20px;
             background-color: #f2f2f2;
@@ -66,37 +66,37 @@
 <body>
     <h1>Circular IA Biosphere Rocks</h1>
 
-    <div id="contenido">
+    <div id="content">
         <h1>The AI circular evolution section is integrated with your IPFS engagement information in web3. A roadmap will be created through AI, showing the evolution of the commitment and the CO2 reduction projection in the project activities.</h1>
         <h2>Operational section; currently not connected to AI, purely informational.</h2>
     </div>
 
-    <div class="seccion" id="formulario">
-        <h2>Formulario de Proyecto CO2</h2>
-        <form action="/procesar_formulario" method="post">
-            <label for="nombre_proyecto">Nombre del proyecto:</label>
-            <input type="text" id="nombre_proyecto" name="nombre_proyecto" required>
+    <div class="section" id="form">
+        <h2>CO2 Project Form</h2>
+        <form action="/process_form" method="post">
+            <label for="project_name">Project Name:</label>
+            <input type="text" id="project_name" name="project_name" required>
             
-            <label for="emisiones_co2">Emisiones de CO2 (toneladas por año):</label>
-            <input type="number" id="emisiones_co2" name="emisiones_co2" required>
+            <label for="co2_emissions">CO2 Emissions (tons per year):</label>
+            <input type="number" id="co2_emissions" name="co2_emissions" required>
             
-            <label for="descripcion">Descripción del proyecto:</label>
-            <textarea id="descripcion" name="descripcion" required></textarea>
+            <label for="description">Project Description:</label>
+            <textarea id="description" name="description" required></textarea>
             
-            <button type="submit">Enviar</button>
+            <button type="submit">Submit</button>
         </form>
     </div>
 
-    <div class="seccion" id="resultados">
-        <h2>Resultados de Proyecciones</h2>
+    <div class="section" id="results">
+        <h2>Projection Results</h2>
         <p>Check here the results and CO2 reduction suggestions for your project.</p>
-        <p>Placeholder para resultados</p>
+        <p>Placeholder for results</p>
     </div>
 
-    <div class="seccion" id="chat">
-        <h2>Preguntas? Interactúa con ChatGPT</h2>
+    <div class="section" id="chat">
+        <h2>Questions? Interact with ChatGPT</h2>
         <p>Interact with our ChatGPT model for more recommendations.</p>
-        <p>Placeholder para chat</p>
+        <p>Placeholder for chat</p>
     </div>
 </body>
 </html>
