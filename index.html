@@ -11,9 +11,10 @@
             gap: 30px; 
             grid-template-areas:
                 "titulo titulo titulo"
+                "contenido contenido contenido"
                 "formulario formulario formulario"
                 "resultados resultados resultados"
-                "interactuar interactuar interactuar";
+                "chat chat chat";
         }
 
         h1 {
@@ -28,35 +29,18 @@
             color: red;
         }
 
-        nav {
-            grid-area: formulario;
+        #contenido {
+            grid-area: contenido;
             border: 1px solid #ddd;
             padding: 20px;
             background-color: #f2f2f2;
         }
 
-        .resultados-section {
-            grid-area: resultados;
+        .seccion {
             border: 1px solid #ddd;
             padding: 20px;
             background-color: #f2f2f2;
-            display: flex;
-            flex-direction: column;
-            height: 100%;
             margin-bottom: 30px;
-        }
-
-        .resultados-content {
-            overflow-y: auto;
-            flex-grow: 1;
-        }
-
-        .chat-section {
-            grid-area: interactuar;
-            border: 1px solid #ddd;
-            padding: 20px;
-            background-color: #f2f2f2;
-            margin-top: 30px;
         }
 
         iframe {
@@ -88,23 +72,35 @@
 <body>
     <h1>Circular IA Biosphere Rocks</h1>
 
-    <nav>
+    <div id="contenido">
         <h1>The AI circular evolution section is integrated with your IPFS engagement information in web3. A roadmap will be created through AI, showing the evolution of the commitment and the CO2 reduction projection in the project activities.</h1>
-        <h2>  </h2>
-        <h1><p><span>Operational section; currently not connected to AI, purely informational.</span></p></h1>
-        <iframe src="form.html" frameborder="0"></iframe>
-    </nav>
-
-    <div class="resultados-section">
-        <h2>Results</h2>
-        <p>Check here the results and CO2 reduction suggestions for your project.</p>
-        <div class="resultados-content">
-            <iframe src="resultados.html" frameborder="0"></iframe>
-        </div>
+        <h2>Operational section; currently not connected to AI, purely informational.</h2>
     </div>
 
-    <div class="chat-section">
-        <h2>Any questions? Interact with ChatGPT</h2>
+    <div class="seccion" id="formulario">
+        <h2>Formulario de Proyecto CO2</h2>
+        <form action="/procesar_formulario" method="post">
+            <label for="nombre_proyecto">Nombre del proyecto:</label>
+            <input type="text" id="nombre_proyecto" name="nombre_proyecto" required>
+            
+            <label for="emisiones_co2">Emisiones de CO2 (toneladas por año):</label>
+            <input type="number" id="emisiones_co2" name="emisiones_co2" required>
+            
+            <label for="descripcion">Descripción del proyecto:</label>
+            <textarea id="descripcion" name="descripcion" required></textarea>
+            
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+
+    <div class="seccion" id="resultados">
+        <h2>Resultados de Proyecciones</h2>
+        <p>Check here the results and CO2 reduction suggestions for your project.</p>
+        <iframe src="resultados.html" frameborder="0"></iframe>
+    </div>
+
+    <div class="seccion" id="chat">
+        <h2>Preguntas? Interactúa con ChatGPT</h2>
         <p>Interact with our ChatGPT model for more recommendations.</p>
         <iframe src="interactuar_chat.html" frameborder="0"></iframe>
     </div>
