@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reducción de CO2</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px; /* Ajuste el espacio entre las secciones aquí */
+            grid-template-areas:
+                "titulo titulo titulo"
+                "formulario formulario formulario"
+                "resultados resultados resultados"
+                "interactuar interactuar interactuar";
+        }
+
+        h1 {
+            grid-area: titulo;
+            text-align: center;
+            border: 1px solid #ddd;
+            padding: 10px;
+            background-color: #f2f2f2;
+        }
+
+        h1 span {
+            color: red; /* Color rojo para el texto adicional */
+        }
+
+        nav {
+            grid-area: formulario;
+            border: 1px solid #ddd;
+            padding: 20px;
+            background-color: #f2f2f2;
+        }
+
+        .resultados-section {
+            grid-area: resultados;
+            border: 1px solid #ddd;
+            padding: 20px;
+            background-color: #f2f2f2;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            margin-bottom: 30px; /* Ajuste el espacio entre resultados e Interactuar con ChatGPT aquí */
+        }
+
+        .resultados-content {
+            overflow-y: auto;
+            flex-grow: 1;
+        }
+
+        .chat-section {
+            grid-area: interactuar;
+            border: 1px solid #ddd;
+            padding: 20px;
+            background-color: #f2f2f2;
+            margin-top: 30px; /* Ajuste el espacio entre resultados e Interactuar con ChatGPT aquí */
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        h2 {
+            margin-top: 0;
+        }
+
+        p {
+            margin-bottom: 10px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        ul li {
+            display: inline;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Circular IA Biosphere Rocks</h1>
+         
+    
+
+    <nav>
+        <h1>The AI circular evolution section is integrated with your IPFS engagement information in web3. A roadmap will be created through AI, showing the evolution of the commitment and the CO2 reduction projection in the project activities.</h1>
+        <h2>  </h2>
+        <h1><p><span>Operational section; currently not connected to AI, purely informational.</span></p></h1>
+        <iframe src="{{ url_for('formulario_proyecto') }}" frameborder="0"></iframe>
+    </nav>
+
+    <div class="resultados-section">
+        <h2>Results</h2>
+        <p>Check here the results and CO2 reduction suggestions for your project.</p>
+        <div class="resultados-content">
+            <iframe src="{{ url_for('resultados') }}" frameborder="0"></iframe>
+        </div>
+    </div>
+
+    <div class="chat-section">
+        <h2>Any questions?
+            Interact with ChatGPT</h2>
+        <p>Interact with our ChatGPT model for more recommendations.</p>
+        <iframe src="{{ url_for('interactuar_chat') }}" frameborder="0"></iframe>
+    </div>
+</body>
+</html>
