@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reducción de CO2</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <style>
         body {
             display: grid;
@@ -93,113 +92,21 @@
         <h1>The AI circular evolution section is integrated with your IPFS engagement information in web3. A roadmap will be created through AI, showing the evolution of the commitment and the CO2 reduction projection in the project activities.</h1>
         <h2>  </h2>
         <h1><p><span>Operational section; currently not connected to AI, purely informational.</span></p></h1>
-        <iframe src="{{ url_for('formulario_proyecto') }}" frameborder="0"></iframe>
+        <iframe src="path_to_form.html" frameborder="0"></iframe>
     </nav>
 
     <div class="resultados-section">
         <h2>Results</h2>
         <p>Check here the results and CO2 reduction suggestions for your project.</p>
         <div class="resultados-content">
-            <iframe src="{{ url_for('resultados') }}" frameborder="0"></iframe>
+            <iframe src="path_to_resultados.html" frameborder="0"></iframe>
         </div>
     </div>
 
     <div class="chat-section">
-        <h2>Any questions?
-            Interact with ChatGPT</h2>
+        <h2>Any questions? Interact with ChatGPT</h2>
         <p>Interact with our ChatGPT model for more recommendations.</p>
-        <iframe src="{{ url_for('interactuar_chat') }}" frameborder="0"></iframe>
+        <iframe src="path_to_interactuar_chat.html" frameborder="0"></iframe>
     </div>
 </body>
 </html>
-
-<!-- templates/form.html -->
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form IA CO2</title>
-</head>
-<body>
-    <h1>Formulario de Proyecto CO2</h1>
-    <form action="/procesar_formulario" method="post">
-        <label for="nombre_proyecto">Nombre del proyecto:</label>
-        <input type="text" id="nombre_proyecto" name="nombre_proyecto" required>
-        
-        <label for="emisiones_co2">Emisiones de CO2 (toneladas por año):</label>
-        <input type="number" id="emisiones_co2" name="emisiones_co2" required>
-        
-        <label for="descripcion">Descripción del proyecto:</label>
-        <textarea id="descripcion" name="descripcion" required></textarea>
-        
-        <button type="submit">Enviar</button>
-    </form>
-</body>
-</html>
-
-<!-- templates/interactuar_chat.html -->
-
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interacción con ChatGPT</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head>
-<body>
-    <h1>Interacción con ChatGPT</h1>
-    <textarea id="mensaje_usuario" placeholder="Ingresa tu mensaje"></textarea>
-    <button onclick="interactuarChat()">Enviar</button>
-    <div id="respuesta_chatgpt"></div>
-
-    <script>
-        function interactuarChat() {
-            var mensajeUsuario = document.getElementById('mensaje_usuario').value;
-
-            // Enviar mensaje del usuario al servidor
-            fetch('/interactuar_chat', {
-                method: 'POST',
-                body: new URLSearchParams({ 'mensaje_usuario': mensajeUsuario }),
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                }
-            })
-            .then(response => response.json())
-            .then(data => {
-                // Mostrar la respuesta de ChatGPT en la página
-                document.getElementById('respuesta_chatgpt').innerText = data.respuesta_chatgpt;
-            });
-        }
-    </script>
-</body>
-</html>
-
-<!-- templates/resultados.html -->
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resultados del Proyecto CO2</title>
-</head>
-<body>
-    <h1>Resultados de proyecciones</h1>
-    <p><strong>Nombre del Proyecto:</strong> {{ name_project }}</p>
-    <p><strong>Emisiones de CO2:</strong> {{ emissions_co2 }} toneladas por año</p>
-    <p><strong>Descripción del Proyecto:</strong> {{ description }}</p>
-
-    <h2>Sugerencias de ChatGPT:</h2>
-    <ul>
-        {% for sugerencia in sugerencias_chatgpt %}
-            <li>{{ sugerencia }}</li>
-        {% endfor %}
-    </ul>
-</body>
-</html>
-
